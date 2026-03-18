@@ -125,7 +125,7 @@ export default function Admin() {
         material:    form.material.trim(),
         description: form.description.trim(),
         featured:    form.featured,
-        image_url:   urlData.publicUrl,
+        img_url:     urlData.publicUrl,
       }])
       if (insertErr) throw new Error('DB insert failed: ' + insertErr.message)
 
@@ -146,7 +146,7 @@ export default function Admin() {
 
     // Extract filename from the public URL to delete from storage
     try {
-      const urlParts = item.image_url?.split('/furniture-photos/')
+      const urlParts = item.img_url?.split('/furniture-photos/')
       if (urlParts?.length === 2) {
         await supabase.storage.from('furniture-photos').remove([urlParts[1]])
       }
@@ -234,7 +234,7 @@ export default function Admin() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxHeight: '75vh', overflowY: 'auto' }}>
               {items.map(item => (
                 <div key={item.id} style={itemRow}>
-                  <img src={item.image_url} alt={item.name}
+                  <img src={item.img_url} alt={item.name}
                     style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '6px', flexShrink: 0 }} />
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{ margin: 0, fontWeight: 600, fontSize: '0.95rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.name}</p>

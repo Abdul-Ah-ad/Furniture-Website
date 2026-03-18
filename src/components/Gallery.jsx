@@ -27,7 +27,7 @@ export default function Gallery() {
         setFurniture(
           (data || []).map(item => ({
             ...item,
-            image: item.image_url || item.image || '',
+            image: item.img_url || item.image || '',
             material: item.material || '',
             description: item.description || '',
             featured: item.featured ?? false,
