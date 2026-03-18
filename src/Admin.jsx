@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { supabase } from './supabaseClient'
 
-const ADMIN_PASSWORD = 'shafiq2024'   // change this to whatever you like
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD
 
 const CATEGORIES = ['living', 'bedroom', 'dining', 'office', 'outdoor']
 
