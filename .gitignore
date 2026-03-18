@@ -2,4 +2,12 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Environment variables — NEVER commit these to Git
+# Actual credentials go in .env.local (gitignored)
+# Safe template committed as .env.example
 .env
+.env.local
+.env.*.local
+.env.development
+.env.production
